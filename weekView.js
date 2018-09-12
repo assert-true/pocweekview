@@ -1,5 +1,5 @@
 //data to display
-const currentWeek = 38;
+let currentWeek = 38;
 const courses = [
     {
         title: 'GTI',
@@ -59,12 +59,13 @@ const courses = [
 
 //Measures
 const headerFontSize = 40;
-const weekWidth = 800;
-const weekHeight = 600;
+const timeSlotsNumber = 12;
+const weekWidth = 1000;
+const weekHeight = 800;
 const cellWidth = weekWidth / 6;
-const cellHeight = 50;
+const cellHeight = weekHeight/timeSlotsNumber;
 const textAlignY = 30;
-const timeSlotsNumber = 11;
+
 
 //Colors
 const emptySlotColor = "#ffefd5";
@@ -84,13 +85,13 @@ const svg = d3.select('#weekview').append('svg')
 
 drawWeek(svg);
 
-
 //Level 0 ; Top hierarchy function
 function drawWeek(svg) {
-    drawTimeLabels(svg);
-    drawHeader(svg);
     drawSlots(svg);
+    drawHeader(svg);
+    drawTimeLabels(svg);
     drawAssignedSlots(svg);
+    document.getElementById('weekNumber').innerText = currentWeek;
 }
 
 //Level 1; Draw TimeLabels
@@ -186,8 +187,8 @@ function drawAssignedSlots(svg) {
             .attr('stroke', lineColor);
         group.append('text')
             .text(dates[i].title)
-            .attr('x', evalX(dates[i].weekday))
-            .attr('y', evalY(dates[i].from)+textAlignY)
+            .attr('x', evalX(dates[i].weekday)+5)
+            .attr('y', evalY(dates[i].from)+evalHeight(dates[i].from, dates[i].to)/2)
             .attr('fill', lineColor)
             .attr('size', 33);
     }
@@ -210,3 +211,7 @@ function evalHeight(startTime, endTime) {
     const time = parseInt(endTime.substring(0, 2)) - parseInt(startTime.substring(0, 2));
     return time * cellHeight;
 }
+
+
+
+
