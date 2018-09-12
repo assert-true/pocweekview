@@ -1,0 +1,31 @@
+/*
+:root {
+
+    --gridlinecolor: #b00;
+}
+*/
+/*
+used to style lines fot the table display
+ */
+.gridline{
+    /*
+    color: gridlinecolor;
+     */
+}
+
+#outline{
+    stroke-dasharray: 0;
+}
+
+#weekline{
+    stroke-dasharray: 2;
+}
+
+/*
+cell types
+ */
+
+.emptyCell{
+    fill: #ffefd5;
+    border: black 2px dashed;
+}
