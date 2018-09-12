@@ -6,3 +6,13 @@
     left: 50%;
     margin-left: -500px;
 }
+
+
+.assignedSlot:hover{
+    fill: #8bb6c4;
+
+}
+
+.assignedSlot{
+    transition: fill 0.2s;
+}

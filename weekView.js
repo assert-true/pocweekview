@@ -184,6 +184,7 @@ function drawAssignedSlots(svg) {
             .attr('width', cellWidth)
             .attr('height', evalHeight(dates[i].from, dates[i].to))
             .attr('fill', assignedSlotColor)
+            .attr('class', 'assignedSlot')
             .attr('stroke', lineColor);
         group.append('text')
             .text(dates[i].title)
